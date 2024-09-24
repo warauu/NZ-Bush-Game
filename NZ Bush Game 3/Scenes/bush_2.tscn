@@ -150,7 +150,9 @@ zoom = Vector2(2.5, 2.5)
 limit_left = -200
 
 [node name="TourGuideNpc" parent="Main" instance=ExtResource("10_6uxw8")]
-position = Vector2(-164, 380)
+position = Vector2(-138, 355)
+file_root = "res://Dialogue/tourguide_dialogue_1.json"
+roam = false
 
 [node name="BushCutscene" type="Node2D" parent="."]
 

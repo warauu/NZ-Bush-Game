@@ -18,7 +18,6 @@ signal dialogue_finished
 
 # exported
 @export_file("*.json") var d_file
-@export var file_root:String
 # public
 
 # private
@@ -47,16 +46,16 @@ func _input(event: InputEvent) -> void:
 # public methods
 
 # private methods
-func start() -> void:
+func start(root) -> void:
 	if d_active:
 		return
 	d_active = true
 	$NinePatchRect.visible = true
-	dialogue = load_dialogue()
+	dialogue = load_dialogue(root)
 	current_dialogue_id = -1
 	next_script()
 
-func load_dialogue() -> Array:
+func load_dialogue(file_root) -> Array:
 	var file:FileAccess = FileAccess.open(file_root, FileAccess.READ)
 	var content:Array = JSON.parse_string(file.get_as_text())
 	return content

@@ -12,6 +12,8 @@ config_version=5
 
 config/name="The NZ Bush 3"
 run/main_scene="res://Scenes/title_screen.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Bushcraft"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

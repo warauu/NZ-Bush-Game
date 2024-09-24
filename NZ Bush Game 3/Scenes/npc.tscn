@@ -166,6 +166,7 @@ radius = 17.0
 
 [node name="Npc" type="CharacterBody2D"]
 script = ExtResource("1_f2csr")
+file_root = "res://Dialogue/worker_dialogue_1.json"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ja47e")

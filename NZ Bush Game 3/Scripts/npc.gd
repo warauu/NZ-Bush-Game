@@ -20,8 +20,10 @@ enum STATES {
 }
 # constants
 const SPEED:int = 30
-# exported
 
+# exported
+@export var file_root:String
+@export var roam:bool = true
 # public
 
 # private
@@ -80,7 +82,7 @@ func _process(delta: float) -> void:
 				
 	if Input.is_action_just_pressed("chat"):
 		print("chatting with npc")
-		$Dialogue.start()
+		$Dialogue.start(file_root)
 		is_roaming = false
 		is_chatting = true
 		$AnimatedSprite2D.play("idle")
@@ -97,10 +99,14 @@ func _on_chat_detection_body_exited(body: Node2D) -> void:
 		
 
 func _on_timer_timeout() -> void:
-	array.shuffle()
-	array2.shuffle()
-	TIMER.wait_time = array.front()
-	current_state = array2.front()
+	if !roam:
+		return
+	else:
+		array.shuffle()
+		array2.shuffle()
+		TIMER.wait_time = array.front()
+		current_state = array2.front()
+	
 	
 func _on_dialogue_dialogue_finished() -> void:
 	is_chatting = false

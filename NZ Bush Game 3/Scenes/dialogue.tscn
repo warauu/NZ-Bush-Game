@@ -9,7 +9,6 @@ anchors_preset = 0
 offset_right = 80.0
 offset_bottom = 42.0
 script = ExtResource("1_kwqny")
-file_root = "res://Dialogue/worker_dialogue_1.json"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -36,5 +35,5 @@ offset_left = 3.0
 offset_top = 9.0
 offset_right = 188.0
 offset_bottom = 84.0
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.35, 0.35)
 text = "Chatting..."

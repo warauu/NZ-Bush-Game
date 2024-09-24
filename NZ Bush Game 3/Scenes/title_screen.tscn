@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlr3advyijups"]
+[gd_scene load_steps=14 format=3 uid="uid://dlr3advyijups"]
 
 [ext_resource type="Texture2D" uid="uid://rdk54h02jqll" path="res://Art/icons/play_arrow_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" id="1_pi5ms"]
 [ext_resource type="Texture2D" uid="uid://b4cdqrty0yadw" path="res://Art/background/61a368c4-3d8d-42dd-b217-e034236b7398.png" id="1_vlosv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dm172l7yli7c8" path="res://Art/icons/settings_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" id="3_jfqwo"]
 [ext_resource type="Texture2D" uid="uid://ds30i8ajydeuf" path="res://Art/icons/radio_button_unchecked_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" id="3_rfnbp"]
 [ext_resource type="Texture2D" uid="uid://dwaqs82cocw1l" path="res://Art/icons/arrow_back_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" id="3_udlsn"]
+[ext_resource type="PackedScene" uid="uid://pch1qshh4mfa" path="res://Scenes/pre-game.tscn" id="3_wk7ow"]
 [ext_resource type="Texture2D" uid="uid://buki8f2r18dly" path="res://Art/icons/info_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" id="4_5pdrw"]
 [ext_resource type="Texture2D" uid="uid://dgc726rdll3r2" path="res://Art/icons/settings_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" id="5_73yli"]
 [ext_resource type="Texture2D" uid="uid://vqdbp2jorwox" path="res://Art/icons/arrow_back_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" id="5_r3ibo"]
@@ -40,37 +41,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Settings" type="VBoxContainer" parent="Screens"]
+[node name="AskForName" parent="Screens" instance=ExtResource("3_wk7ow")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Info" type="VBoxContainer" parent="Screens"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = 51.0
-offset_right = -21.0
-offset_bottom = 32.0
+offset_top = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Screens/Info"]
+custom_minimum_size = Vector2(1100, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
 text = "A game made by Namrata Santhosh 
 
-special thanks to:
-- Poopoo Head
-- Moosig
+This game was created to teach newbies about the beauty of New Zealand's (Aotearoa) bush. Learn useful facts and survival information as well!
 
 "
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="Screens/Info"]
 layout_mode = 2

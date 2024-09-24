@@ -2,6 +2,7 @@
 	{"name": "Tour Guide", "text": "Hello there!"},
 	{"name": "Tour Guide", "text": "Hello, *, Welcome to Taniwha Trail!"},
 	{"name": "*", "text": "Hello! This place looks beautiful!"}, 
-	{"name": "Tour Guide", "text": "Yes, A lot of trails in Aotearoa (New Zealand) are absolutely beautiful"},
-	{"name": "Tour Guide", "text": "Please go through this path when you are ready, I will accompany you!"},
+	{"name": "Tour Guide", "text": "Yes, A lot of trails in Aotearoa"},
+	{"name": "Tour Guide", "text": "(New Zealand) are absolutely beautiful!"},
+	{"name": "Tour Guide", "text": "I will accompany you once you are ready to go through this path"},
 ]
