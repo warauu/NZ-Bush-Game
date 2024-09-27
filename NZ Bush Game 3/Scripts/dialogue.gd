@@ -23,6 +23,7 @@ signal dialogue_finished
 # private
 var dialogue:Array
 var current_dialogue_id:int = 0
+var animal:Object
 
 var d_active:bool = false
 # onready
@@ -34,7 +35,7 @@ var d_active:bool = false
 
 # _ready
 func _ready() -> void:
-	$NinePatchRect.visible = false
+	self.visible = false
 	
 	
 # _methods
@@ -46,11 +47,13 @@ func _input(event: InputEvent) -> void:
 # public methods
 
 # private methods
-func start(root) -> void:
+func start(root, animal_node:Object) -> void:
+	print(animal_node)
+	animal = animal_node
 	if d_active:
 		return
 	d_active = true
-	$NinePatchRect.visible = true
+	self.visible = true
 	dialogue = load_dialogue(root)
 	current_dialogue_id = -1
 	next_script()
@@ -64,9 +67,33 @@ func next_script() -> void:
 	current_dialogue_id += 1
 	if current_dialogue_id >= len(dialogue):
 		d_active = false
-		$NinePatchRect.visible = false
+		self.visible = false
 		emit_signal("dialogue_finished")
-		return 
+		if animal.can_exterminate.is_valid():
+			print(animal.can_exterminate)
+			exterminate_animal(animal)
+		else:
+			return 
 	
-	$NinePatchRect/Name.text = dialogue[current_dialogue_id]["name"]
-	$NinePatchRect/Text.text = dialogue[current_dialogue_id]["text"]
+	$Name.text = fetch_player_name("name")
+	$Text.text = fetch_player_name("text")
+	
+func fetch_player_name(variable:String) -> String:
+	var text:String
+	for i:String in dialogue[current_dialogue_id][variable]:
+		if i == "*":
+			if FileAccess.file_exists("user://savefile.save"):
+				var player_name:String
+				player_name = FileAccess.open("user://savefile.save", FileAccess.READ).get_var()
+				i = player_name
+				print(player_name)
+			else:
+				print("no data found in file")
+		text = text + i
+	return text
+
+func exterminate_animal(animal:Object) -> void:
+	GLOBAL_SCRIPT.exterminated_count += 1
+	animal.queue_free() 
+	GLOBAL_SCRIPT.increase_counter()
+	print(GLOBAL_SCRIPT.exterminated_count)

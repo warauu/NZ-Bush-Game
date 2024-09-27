@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cy2yxymgyvhqk"]
+[gd_scene load_steps=40 format=3 uid="uid://cy2yxymgyvhqk"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_1i1jn"]
 [ext_resource type="Texture2D" uid="uid://ujkeafx2iha7" path="res://Art/survivalgame-player-green.png" id="1_46201"]
@@ -325,7 +325,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7g37w"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xwefg"]
+radius = 13.0
+
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_1i1jn")
 inv = ExtResource("2_vokvv")
 
@@ -348,3 +352,12 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="PlayerHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_xwefg")
+
+[connection signal="body_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="PlayerHitbox" to="." method="_on_player_hitbox_body_exited"]

@@ -1,8 +1,11 @@
 [
-	{"name": "Tour Guide", "text": "Hello there!"},
-	{"name": "Tour Guide", "text": "Hello, *, Welcome to Taniwha Trail!"},
-	{"name": "*", "text": "Hello! This place looks beautiful!"}, 
-	{"name": "Tour Guide", "text": "Yes, A lot of trails in Aotearoa"},
-	{"name": "Tour Guide", "text": "(New Zealand) are absolutely beautiful!"},
-	{"name": "Tour Guide", "text": "I will accompany you once you are ready to go through this path"},
+	{"name": "Caretaker", "text": "Hey, *! Welcome to Taniwha Trail!"},
+	{"name": "*", "text": "Yeah, Hey! This place looks beautiful!"}, 
+	{"name": "Caretaker", "text": "Yes, it does! New Zealand is very beautful, isn't it?"},
+	{"name": "*", "text": "It's hard to notice when we're always at home."},
+	{"name": "Caretaker", "text": "Yeah! Well, now that you are here as per my request,"},
+	{"name": "Caretaker", "text": "Would you be able to eradicate all 8 pests in the bush?"},
+	{"name": "*", "text": "Huh? Ok."},
+	{"name": "Caretaker", "text": "Once you have gotten all 9, I'll meet you at the end of the trail!"},
+	{"name": "Caretaker", "text": "I'm feeling a little sick today, so you're a real one"},
 ]

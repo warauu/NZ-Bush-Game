@@ -17,6 +17,14 @@ config/custom_user_dir_name="Bushcraft"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GLOBAL_SCRIPT="*res://Scripts/global_script.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 right={

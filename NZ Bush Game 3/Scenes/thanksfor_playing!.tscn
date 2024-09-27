@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnt4b2x7sfvl5"]
+
+[ext_resource type="Script" path="res://Scripts/thanksfor_playing!.gd" id="1_liqbp"]
+
+[node name="ThanksforPlaying!" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -989.0
+offset_bottom = -564.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_liqbp")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Thanks for Playing!
+Did you get them all?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Play Again"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Exit
+"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5t1otusqyu0d"]
+[gd_scene load_steps=24 format=3 uid="uid://c5t1otusqyu0d"]
 
 [ext_resource type="Script" path="res://Scripts/npc.gd" id="1_f2csr"]
 [ext_resource type="Texture2D" uid="uid://ctbfu754r6bny" path="res://Art/Human-Worker-Red.png" id="1_xlomn"]
-[ext_resource type="PackedScene" uid="uid://k58c44bx3kos" path="res://Scenes/dialogue.tscn" id="3_iw78t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_spksd"]
 atlas = ExtResource("1_xlomn")
@@ -170,9 +169,7 @@ file_root = "res://Dialogue/worker_dialogue_1.json"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ja47e")
-animation = &"sWalk"
-frame = 2
-frame_progress = 0.174178
+animation = &"wWalk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
@@ -186,13 +183,6 @@ shape = SubResource("CircleShape2D_vysfv")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Dialogue" parent="." instance=ExtResource("3_iw78t")]
-offset_left = -39.0
-offset_top = -52.0
-offset_right = 41.0
-offset_bottom = -17.0
-
 [connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
 [connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

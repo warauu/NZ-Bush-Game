@@ -61,7 +61,7 @@ func _on_player_detection_body_shape_entered(body_rid: RID, body: Node2D, body_s
 	if body.has_method("player"):
 		if !has_player_entered_area:
 			has_player_entered_area = true
-			cutscene_bush1()
+			#cutscene_bush1() #disabled for now
 # public methods
 
 # private methods
@@ -90,12 +90,15 @@ func dust_particle_toggle() -> void:
 func animation_cars() -> void:
 	dust_particle_toggle()
 	ANIMATION_PLAYER.play("car_driving")
-	await get_tree().create_timer(6).timeout 
+	await get_tree().create_timer(1).timeout 
+	$TopLayer/CanvasLayer/Dialogue.start("res://Dialogue/starting_cutscene.json", null)
+	await get_tree().create_timer(6).timeout
 	## The script will continue as the animation is playing.
 	## so you need to set the amount of time to wait to let it fully play.
 	$OpeningCutscene.queue_free()
 	dust_particle_toggle()	
 	$Main.visible = true
+	
 	CAMERA1.enabled = false
 	player.camera.enabled = true
 	

@@ -80,9 +80,9 @@ func _process(delta: float) -> void:
 			STATES.MOVE:
 				move(delta)
 				
-	if Input.is_action_just_pressed("chat"):
+	if Input.is_action_just_pressed("chat") && player_in_chat_zone:
 		print("chatting with npc")
-		$Dialogue.start(file_root)
+		$"../../TopLayer/CanvasLayer/Dialogue".start(file_root)
 		is_roaming = false
 		is_chatting = true
 		$AnimatedSprite2D.play("idle")
@@ -111,6 +111,12 @@ func _on_timer_timeout() -> void:
 func _on_dialogue_dialogue_finished() -> void:
 	is_chatting = false
 	is_roaming = true
+	if name == "Idiot":
+		self.queue_free()
+	if name == "Bro":
+		$"../../../TopLayer/CanvasLayer/ThanksforPlaying!".visible = true
+	if name == "TouristNpc":
+		$"../../../TopLayer/CanvasLayer/Label".visible = true
 
 # public methods
 

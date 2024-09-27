@@ -26,7 +26,7 @@ var dead:bool = false
 var player_in_area:bool = false
 var player:CharacterBody2D
 # onready
-@onready var enemy = $SlimeCollectable
+@onready var enemy_collectable = $SlimeCollectable
 
 # ------Main------------
 
@@ -88,12 +88,15 @@ func death() -> void:
 	
 	
 func drop_slime() -> void:
-	enemy.visible = true
+	enemy_collectable.visible = true
 	$SlimeCollectArea/CollisionShape2D.disabled = false
 	enemy_collect()
 	
 func enemy_collect() -> void:
 	await get_tree().create_timer(1.5).timeout
-	enemy.visible = false
+	enemy_collectable.visible = false
 	player.collect(item_resource)
 	queue_free()
+	
+func enemy() -> void:
+	print("player took damage")
