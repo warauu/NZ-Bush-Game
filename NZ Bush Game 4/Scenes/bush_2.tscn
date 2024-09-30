@@ -149,13 +149,13 @@ file_root = "res://Dialogue/rodent3.json"
 can_exterminate = true
 sprite = "rodent"
 
-[node name="Idiot" parent="Bush/Animals" node_paths=PackedStringArray("dialogue") instance=ExtResource("10_6uxw8")]
+[node name="Bad" parent="Bush/Animals" node_paths=PackedStringArray("dialogue") instance=ExtResource("10_6uxw8")]
 position = Vector2(1364, -789)
 file_root = "res://Dialogue/npc.json"
 roam = false
 dialogue = NodePath("../../../TopLayer/CanvasLayer/Dialogue")
 
-[node name="dog" parent="Bush/Animals/Idiot" instance=ExtResource("11_lqtpy")]
+[node name="dog" parent="Bush/Animals/Bad" instance=ExtResource("11_lqtpy")]
 position = Vector2(27, 20)
 file_root = "res://Dialogue/dog.json"
 roam = false
@@ -164,7 +164,7 @@ roam = false
 position = Vector2(770, -1276)
 file_root = "res://Dialogue/rodent4.json"
 can_exterminate = true
-sprite = "mouse"
+sprite = "rodent"
 
 [node name="Bro" parent="Bush/Animals" node_paths=PackedStringArray("dialogue") instance=ExtResource("10_6uxw8")]
 position = Vector2(1499, -1279)
@@ -310,6 +310,7 @@ texture = ExtResource("11_bleqj")
 
 [node name="TouristNpc" parent="Main" node_paths=PackedStringArray("dialogue") instance=ExtResource("10_6uxw8")]
 position = Vector2(434, 413)
+file_root = "res://Dialogue/tourist_1.json"
 roam = false
 dialogue = NodePath("../../TopLayer/CanvasLayer/Dialogue")
 
@@ -378,13 +379,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Dialogue" parent="TopLayer/CanvasLayer" node_paths=PackedStringArray("global_script") instance=ExtResource("12_nbeq6")]
+[node name="Dialogue" parent="TopLayer/CanvasLayer" node_paths=PackedStringArray("global_script", "player") instance=ExtResource("12_nbeq6")]
 offset_left = 247.0
 offset_top = 551.0
 offset_right = 1475.0
 offset_bottom = 247.0
 scale = Vector2(0.25, 0.25)
 global_script = NodePath("../../../GlobalScript")
+player = NodePath("../../../Main/Player")
 metadata/_edit_use_anchors_ = true
 
 [node name="Exterminated_UI" type="ColorRect" parent="TopLayer/CanvasLayer"]

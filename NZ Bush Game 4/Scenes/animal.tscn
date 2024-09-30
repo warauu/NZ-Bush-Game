@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://kistxv3o0gv7"]
+[gd_scene load_steps=14 format=3 uid="uid://kistxv3o0gv7"]
 
 [ext_resource type="Script" path="res://Scripts/animal.gd" id="1_151i1"]
 [ext_resource type="Texture2D" uid="uid://bjec84lphckpe" path="res://Art/asset pack 02(pixel Predator)/Selection39.png" id="2_op4t3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c4hlkpsjmhc74" path="res://Art/asset pack 02(pixel Predator)/Selection38.png" id="3_k1y5a"]
 [ext_resource type="Texture2D" uid="uid://cccesmb1uiv42" path="res://Art/asset pack 02(pixel Predator)/Selection53.png" id="3_stm2a"]
 [ext_resource type="Texture2D" uid="uid://cash06pv1jjrm" path="res://Art/asset pack 02(pixel Predator)/Selection51.png" id="4_ebykv"]
+[ext_resource type="Texture2D" uid="uid://cjn2ypx2tgjfi" path="res://Art/asset pack 02(pixel Predator)/kaka.png" id="5_ekkp2"]
 [ext_resource type="Texture2D" uid="uid://c1e7eiqifjnao" path="res://Art/asset pack 02(pixel Predator)/Selection50.png" id="6_q63d1"]
 [ext_resource type="Texture2D" uid="uid://beh5twy2wjj6q" path="res://Art/asset pack 02(pixel Predator)/Selection49.png" id="7_1tx05"]
 
@@ -38,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_stm2a")
+"texture": ExtResource("5_ekkp2")
 }],
 "loop": true,
 "name": &"kaka",

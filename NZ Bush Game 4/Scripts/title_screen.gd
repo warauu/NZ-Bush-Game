@@ -78,7 +78,6 @@ func on_accept() -> void:
 	$Screens/AskForName/MarginContainer/VBoxContainer/HBoxContainer.visible = false
 	save_file.store_var(name)
 	await get_tree().create_timer(1).timeout 
-	#global_script.save_data(name)
 	get_tree().change_scene_to_packed(game)
 
 func on_cancel() -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7ox384w1413d"
-path="res://.godot/imported/Selection35.png-c5ff4e005c57019623938718d47e33ac.ctex"
+uid="uid://cjn2ypx2tgjfi"
+path="res://.godot/imported/kaka.png-34c39b0995f7474743ed0df9083998e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/asset pack 02(pixel Predator)/Selection35.png"
-dest_files=["res://.godot/imported/Selection35.png-c5ff4e005c57019623938718d47e33ac.ctex"]
+source_file="res://Art/asset pack 02(pixel Predator)/kaka.png"
+dest_files=["res://.godot/imported/kaka.png-34c39b0995f7474743ed0df9083998e3.ctex"]
 
 [params]
 

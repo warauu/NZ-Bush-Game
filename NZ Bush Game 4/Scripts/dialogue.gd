@@ -16,6 +16,7 @@ signal dialogue_finished ## other nodes in the scene will recieve the signal
 # exported
 @export_file("*.json") var d_file ## the chosen file format for dialogues
 @export var global_script:Node ## the manager script
+@export var player:CharacterBody2D
 # public
 # private
 var dialogue:Array ## contents of dialogues stored here
@@ -45,6 +46,7 @@ func _input(event: InputEvent) -> void:
 # private methods
 func start(root, animal_node:Object) -> void: ##function that initialises the dialogue to display
 	print(animal_node)
+	player.magnitude = 0
 	animal = animal_node
 	if d_active:
 		return
@@ -67,13 +69,14 @@ func next_script() -> void: ## moves to the next element in the dialogue array
 		d_active = false
 		self.visible = false
 		emit_signal("dialogue_finished")
+		player.magnitude = 150
 		if animal:	# Checks if null (This is null if it's not an animal)
 			if animal is Animal:
 				if animal.can_exterminate:
 					animal.exterminate_self()
 			elif animal is Npc:
 				print("npc")
-				if animal.name == "Idiot":
+				if animal.name == "Bad":
 					global_script.function_global(3)
 					animal.queue_free()
 				if animal.name == "Bro":

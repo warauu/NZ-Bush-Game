@@ -41,10 +41,10 @@ func function_global(code:int) -> void:
 			dialogue.start("res://Dialogue/tourguide_3.json", null)
 			player.visible = false
 			thanks_for_playing.visible = true
-		elif exterminated_count >= 0 || exterminated_count <= 4:
+		elif exterminated_count >= 0 && exterminated_count <= 4:
 			print("0-4")
 			dialogue.start("res://Dialogue/tourguide_4.json", null)
-		elif exterminated_count >= 8:
+		elif exterminated_count >= 5:
 			print("5-8")
 			dialogue.start("res://Dialogue/tourguide_5.json", null)
 			player.visible = false
