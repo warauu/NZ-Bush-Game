@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="New Zealand's Native Birds"
+config/name="The NZ Bush version 4"
 run/main_scene="res://Scenes/title_screen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Bushcraft"

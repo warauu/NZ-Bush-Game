@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://k58c44bx3kos"]
+
+[ext_resource type="Script" path="res://Scripts/dialogue.gd" id="1_kwqny"]
+[ext_resource type="Texture2D" uid="uid://dhmtncbql4tqx" path="res://Art/inventory-slot.png" id="1_sodr1"]
+[ext_resource type="FontFile" uid="uid://hq8n3bxuxhla" path="res://Art/fonts/Fredoka/Fredoka-VariableFont_wdth,wght.ttf" id="3_mqrw1"]
+
+[node name="Dialogue" type="NinePatchRect"]
+anchors_preset = -1
+anchor_left = 0.022
+anchor_right = 0.974
+anchor_bottom = 1.0
+offset_left = -25.344
+offset_right = 29.9519
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sodr1")
+region_rect = Rect2(0.837906, 0.512724, 14.3238, 14.9995)
+script = ExtResource("1_kwqny")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 41.0
+offset_top = 15.0
+offset_right = -38.9999
+offset_bottom = 84.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 65
+text = "Name"
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.989
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 95.0
+offset_right = -14.3279
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_mqrw1")
+theme_override_font_sizes/font_size = 100
+text = "Chatting....fdddddddddddddddddddffdfddfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffddd"
+autowrap_mode = 3

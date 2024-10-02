@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cgiyxrrmso5ig"]
+[gd_scene load_steps=34 format=3 uid="uid://cgiyxrrmso5ig"]
 
 [ext_resource type="TileSet" uid="uid://de1leywddi62a" path="res://Resources/tilemap2.tres" id="1_dtd5y"]
 [ext_resource type="Script" path="res://Scripts/bush_2.gd" id="1_ifthx"]
@@ -14,14 +14,37 @@
 [ext_resource type="Texture2D" uid="uid://7ns157878obp" path="res://Art/exclamation_mark.png" id="11_bleqj"]
 [ext_resource type="PackedScene" uid="uid://kistxv3o0gv7" path="res://Scenes/animal.tscn" id="11_lqtpy"]
 [ext_resource type="PackedScene" uid="uid://k58c44bx3kos" path="res://Scenes/dialogue.tscn" id="12_nbeq6"]
+[ext_resource type="Texture2D" uid="uid://c1e7eiqifjnao" path="res://Art/asset pack 02(pixel Predator)/Selection50.png" id="13_ch2ha"]
+[ext_resource type="Texture2D" uid="uid://c4hlkpsjmhc74" path="res://Art/asset pack 02(pixel Predator)/Selection38.png" id="14_eoius"]
 [ext_resource type="PackedScene" uid="uid://dnt4b2x7sfvl5" path="res://Scenes/thanksfor_playing!.tscn" id="14_kjkr0"]
+[ext_resource type="Texture2D" uid="uid://beh5twy2wjj6q" path="res://Art/asset pack 02(pixel Predator)/Selection49.png" id="15_8n11b"]
+[ext_resource type="Texture2D" uid="uid://dnwxqryuahfdt" path="res://Art/Human-Worker-Red_idle2.png" id="16_qfu33"]
 [ext_resource type="Script" path="res://Scripts/global_script.gd" id="17_be0ym"]
+[ext_resource type="Texture2D" uid="uid://25jw5kbos7qh" path="res://Art/kenney_input-prompts-pixel-16/Tiles/tile_0087.png" id="19_r3dis"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hd8g5"]
 size = Vector2(30, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8lt1"]
 size = Vector2(14, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8k6f"]
+size = Vector2(149, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_460l1"]
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4q2ys"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 25
+border_width_top = 25
+border_width_right = 25
+border_width_bottom = 25
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fynx"]
 size = Vector2(169, 63)
@@ -149,11 +172,12 @@ file_root = "res://Dialogue/rodent3.json"
 can_exterminate = true
 sprite = "rodent"
 
-[node name="Bad" parent="Bush/Animals" node_paths=PackedStringArray("dialogue") instance=ExtResource("10_6uxw8")]
+[node name="Bad" parent="Bush/Animals" node_paths=PackedStringArray("dialogue", "press_e") instance=ExtResource("10_6uxw8")]
 position = Vector2(1364, -789)
 file_root = "res://Dialogue/npc.json"
 roam = false
 dialogue = NodePath("../../../TopLayer/CanvasLayer/Dialogue")
+press_e = NodePath("../../../TopLayer/CanvasLayer/PressE")
 
 [node name="dog" parent="Bush/Animals/Bad" instance=ExtResource("11_lqtpy")]
 position = Vector2(27, 20)
@@ -298,21 +322,23 @@ limit_top = -1550
 limit_right = 1680
 limit_bottom = 800
 
-[node name="TourGuideNpc" parent="Main" node_paths=PackedStringArray("dialogue") instance=ExtResource("10_6uxw8")]
-position = Vector2(-65, 458)
+[node name="TourGuideNpc" parent="Main" node_paths=PackedStringArray("dialogue", "press_e") instance=ExtResource("10_6uxw8")]
+position = Vector2(332, 565)
 file_root = "res://Dialogue/tourguide_dialogue_1.json"
 roam = false
 dialogue = NodePath("../../TopLayer/CanvasLayer/Dialogue")
+press_e = NodePath("../../TopLayer/CanvasLayer/PressE")
 
 [node name="Sprite2D" type="Sprite2D" parent="Main/TourGuideNpc"]
 position = Vector2(0, -13)
 texture = ExtResource("11_bleqj")
 
-[node name="TouristNpc" parent="Main" node_paths=PackedStringArray("dialogue") instance=ExtResource("10_6uxw8")]
+[node name="TouristNpc" parent="Main" node_paths=PackedStringArray("dialogue", "press_e") instance=ExtResource("10_6uxw8")]
 position = Vector2(434, 413)
 file_root = "res://Dialogue/tourist_1.json"
 roam = false
 dialogue = NodePath("../../TopLayer/CanvasLayer/Dialogue")
+press_e = NodePath("../../TopLayer/CanvasLayer/PressE")
 
 [node name="dog" parent="Main/TouristNpc" instance=ExtResource("11_lqtpy")]
 position = Vector2(19, -8)
@@ -321,35 +347,41 @@ roam = false
 
 [node name="Birds" type="Node2D" parent="Main"]
 
-[node name="kiwi" parent="Main/Birds" instance=ExtResource("11_lqtpy")]
+[node name="kiwi_carpark" parent="Main/Birds" instance=ExtResource("11_lqtpy")]
 position = Vector2(117, 531)
 file_root = "res://Dialogue/kiwi.json"
 roam = false
 sprite = "kiwi"
 
-[node name="kereru" parent="Main/Birds" instance=ExtResource("11_lqtpy")]
+[node name="kereru_carpark" parent="Main/Birds" instance=ExtResource("11_lqtpy")]
 position = Vector2(229, 500)
 file_root = "res://Dialogue/kereru.json"
 roam = false
 sprite = "kereru"
 
-[node name="kaka" parent="Main/Birds" instance=ExtResource("11_lqtpy")]
+[node name="kaka_carpark" parent="Main/Birds" instance=ExtResource("11_lqtpy")]
 position = Vector2(192, 616)
 file_root = "res://Dialogue/kaka.json"
 roam = false
 sprite = "kaka"
 
-[node name="tui" parent="Main/Birds" instance=ExtResource("11_lqtpy")]
+[node name="tui_carpark" parent="Main/Birds" instance=ExtResource("11_lqtpy")]
 position = Vector2(305, 429)
 file_root = "res://Dialogue/tui.json"
 roam = false
 sprite = "tui"
 
-[node name="weka" parent="Main/Birds" instance=ExtResource("11_lqtpy")]
+[node name="weka_carpark" parent="Main/Birds" instance=ExtResource("11_lqtpy")]
 position = Vector2(380, 497)
 file_root = "res://Dialogue/weka.json"
 roam = false
 sprite = "weka"
+
+[node name="Area2D" type="Area2D" parent="Main"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main/Area2D"]
+position = Vector2(-75.5, 288)
+shape = SubResource("RectangleShape2D_p8k6f")
 
 [node name="TopLayer" type="Control" parent="."]
 layout_mode = 3
@@ -359,6 +391,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TopLayer"]
+layout_mode = 0
+offset_left = -99.0
+offset_top = 431.0
+offset_right = 27.0
+offset_bottom = 454.0
+rotation = -1.5479
+text = "Bush this way ->"
 
 [node name="filter" type="ColorRect" parent="TopLayer"]
 layout_mode = 0
@@ -371,30 +412,220 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="TopLayer"]
 
-[node name="leaves effect" type="TextureRect" parent="TopLayer/CanvasLayer"]
-visible = false
+[node name="Objective" type="Panel" parent="TopLayer/CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 771.0
+offset_top = 4.0
+offset_right = 878.0
+offset_bottom = 186.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_styles/panel = SubResource("StyleBoxTexture_460l1")
 
-[node name="Dialogue" parent="TopLayer/CanvasLayer" node_paths=PackedStringArray("global_script", "player") instance=ExtResource("12_nbeq6")]
-offset_left = 247.0
-offset_top = 551.0
-offset_right = 1475.0
-offset_bottom = 247.0
+[node name="Background" type="ColorRect" parent="TopLayer/CanvasLayer/Objective"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 405.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+color = Color(0, 0, 0, 0.243137)
+
+[node name="pests" type="VBoxContainer" parent="TopLayer/CanvasLayer/Objective/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 250
+
+[node name="ObjectiveText" type="Label" parent="TopLayer/CanvasLayer/Objective/Background/pests"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_4q2ys")
+text = "Objective: Talk to Bob!"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="TopLayer/CanvasLayer/Objective/Background/pests"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "
+
+
+"
+
+[node name="Control" type="Control" parent="TopLayer/CanvasLayer/Objective/Background/pests"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label2" type="Label" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control"]
+layout_mode = 2
+offset_top = -510.0
+offset_right = 1587.0
+offset_bottom = -441.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "All possible pests:"
+horizontal_alignment = 2
+
+[node name="images" type="HBoxContainer" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control"]
+layout_mode = 2
+offset_left = 48.0002
+offset_top = -437.0
+offset_right = 1593.0
+offset_bottom = -149.0
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+alignment = 2
+
+[node name="rodent" type="TextureRect" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control/images"]
+layout_mode = 2
+texture = ExtResource("13_ch2ha")
+
+[node name="hedgehog" type="TextureRect" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control/images"]
+layout_mode = 2
+texture = ExtResource("14_eoius")
+
+[node name="cat" type="TextureRect" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control/images"]
+layout_mode = 2
+texture = ExtResource("15_8n11b")
+
+[node name="person" type="TextureRect" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control/images"]
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("16_qfu33")
+stretch_mode = 2
+
+[node name="labels" type="HBoxContainer" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control"]
+layout_mode = 2
+offset_left = 27.0
+offset_top = -145.0
+offset_right = 1617.0
+offset_bottom = -4.0
+size_flags_horizontal = 4
+theme_override_constants/separation = 120
+alignment = 2
+
+[node name="rodent" type="Label" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control/labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Rodents"
+
+[node name="hedgehog" type="Label" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control/labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Hedgehogs"
+
+[node name="cat" type="Label" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control/labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Cats"
+
+[node name="person" type="Label" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control/labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Irresponsible
+people"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="TopLayer/CanvasLayer/Objective/Background/pests/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="PressE" type="ColorRect" parent="TopLayer/CanvasLayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -98.0
+offset_right = 184.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.298039)
+
+[node name="TextureRect" type="TextureRect" parent="TopLayer/CanvasLayer/PressE"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.5
+offset_top = -67.0
+offset_right = -47.5
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4, 4)
+texture = ExtResource("19_r3dis")
+
+[node name="Label" type="Label" parent="TopLayer/CanvasLayer/PressE"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 80.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 24
+text = "Press"
+
+[node name="Label2" type="Label" parent="TopLayer/CanvasLayer/PressE"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 14.0
+offset_right = 289.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 24
+text = "to Interact"
+
+[node name="Dialogue" parent="TopLayer/CanvasLayer" node_paths=PackedStringArray("global_script", "player", "objective") instance=ExtResource("12_nbeq6")]
+visible = false
+anchor_left = 0.0217014
+anchor_top = -0.00925926
+anchor_right = 0.973958
+anchor_bottom = 1.20679
+offset_left = 241.0
+offset_top = 524.0
+offset_right = 1469.0
+offset_bottom = 220.0
 scale = Vector2(0.25, 0.25)
 global_script = NodePath("../../../GlobalScript")
 player = NodePath("../../../Main/Player")
+objective = NodePath("../Objective")
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" type="Label" parent="TopLayer/CanvasLayer/Dialogue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1488.0
+offset_top = 356.0
+offset_right = -38.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 65
+text = "Press Space to continue >"
+
 [node name="Exterminated_UI" type="ColorRect" parent="TopLayer/CanvasLayer"]
-visible = false
-offset_left = 984.0
-offset_top = 585.0
-offset_right = 1144.0
-offset_bottom = 641.0
+offset_left = 981.0
+offset_top = 580.0
+offset_right = 1141.0
+offset_bottom = 636.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="TopLayer/CanvasLayer/Exterminated_UI"]
@@ -538,13 +769,14 @@ texture = ExtResource("10_vfwae")
 position = Vector2(310, 543)
 zoom = Vector2(1.5, 1.5)
 
-[node name="GlobalScript" type="Node" parent="." node_paths=PackedStringArray("thanks_for_playing", "exterminate_background", "collected_num", "player", "dialogue")]
+[node name="GlobalScript" type="Node" parent="." node_paths=PackedStringArray("thanks_for_playing", "exterminate_background", "collected_num", "player", "dialogue", "objective_text")]
 script = ExtResource("17_be0ym")
 thanks_for_playing = NodePath("../TopLayer/CanvasLayer/End")
 exterminate_background = NodePath("../TopLayer/CanvasLayer/Exterminated_UI")
 collected_num = NodePath("../TopLayer/CanvasLayer/Exterminated_UI/Collected_Num")
 player = NodePath("../Main/Player")
 dialogue = NodePath("../TopLayer/CanvasLayer/Dialogue")
+objective_text = NodePath("../TopLayer/CanvasLayer/Objective/Background/pests/ObjectiveText")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../OpeningCutscene")
@@ -552,4 +784,5 @@ libraries = {
 "": SubResource("AnimationLibrary_r0ypy")
 }
 
+[connection signal="body_entered" from="Main/Area2D" to="GlobalScript" method="_on_area_2d_body_entered"]
 [connection signal="body_shape_entered" from="BushCutscene/PlayerDetection" to="." method="_on_player_detection_body_shape_entered"]

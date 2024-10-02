@@ -1,0 +1,157 @@
+[gd_scene load_steps=16 format=3 uid="uid://dlr3advyijups"]
+
+[ext_resource type="Texture2D" uid="uid://rdk54h02jqll" path="res://Art/icons/play_arrow_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" id="1_pi5ms"]
+[ext_resource type="Texture2D" uid="uid://b4cdqrty0yadw" path="res://Art/background/61a368c4-3d8d-42dd-b217-e034236b7398.png" id="1_vlosv"]
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_x0mtr"]
+[ext_resource type="Texture2D" uid="uid://d1absu3cg55jx" path="res://Art/icons/play_arrow_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" id="2_giads"]
+[ext_resource type="FontFile" uid="uid://dht7cqufp5l27" path="res://Art/fonts/Jersey_15/Jersey15-Regular.ttf" id="2_mlk24"]
+[ext_resource type="Texture2D" uid="uid://dm172l7yli7c8" path="res://Art/icons/settings_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" id="3_jfqwo"]
+[ext_resource type="Texture2D" uid="uid://ds30i8ajydeuf" path="res://Art/icons/radio_button_unchecked_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" id="3_rfnbp"]
+[ext_resource type="Texture2D" uid="uid://dwaqs82cocw1l" path="res://Art/icons/arrow_back_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" id="3_udlsn"]
+[ext_resource type="PackedScene" uid="uid://pch1qshh4mfa" path="res://Scenes/pre-game.tscn" id="3_wk7ow"]
+[ext_resource type="Texture2D" uid="uid://buki8f2r18dly" path="res://Art/icons/info_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" id="4_5pdrw"]
+[ext_resource type="Texture2D" uid="uid://cwvxe2ihoj3a8" path="res://Art/tutorial graphic 2.png" id="4_encnj"]
+[ext_resource type="Texture2D" uid="uid://dgc726rdll3r2" path="res://Art/icons/settings_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" id="5_73yli"]
+[ext_resource type="Texture2D" uid="uid://vqdbp2jorwox" path="res://Art/icons/arrow_back_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" id="5_r3ibo"]
+[ext_resource type="Texture2D" uid="uid://c2trkvjwpk8ar" path="res://Art/icons/info_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" id="7_f6kjg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdxm0"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x0mtr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vlosv")
+stretch_mode = 1
+
+[node name="Screens" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AskForName" parent="Screens" instance=ExtResource("3_wk7ow")]
+visible = false
+layout_mode = 1
+
+[node name="Info" type="VBoxContainer" parent="Screens"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Screens/Info"]
+layout_mode = 2
+text = "
+"
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Info"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("4_encnj")
+
+[node name="TextureButton" type="TextureButton" parent="Screens/Info"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_udlsn")
+texture_pressed = ExtResource("3_rfnbp")
+texture_hover = ExtResource("5_r3ibo")
+
+[node name="Label" type="Label" parent="Screens/Info/TextureButton"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 20.5
+offset_right = 550.0
+offset_bottom = 58.5
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cdxm0")
+text = "Click arrow button to return to main menu"
+
+[node name="TitleVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 146.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Label" type="Label" parent="TitleVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.362267, 0.539849, 0.573574, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 21
+theme_override_fonts/font = ExtResource("2_mlk24")
+theme_override_font_sizes/font_size = 100
+text = "Save the Manu!"
+horizontal_alignment = 1
+
+[node name="Seperator" type="Label" parent="TitleVBox"]
+layout_mode = 2
+text = "
+
+"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="TitleVBox"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Play" type="TextureButton" parent="TitleVBox/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pi5ms")
+texture_pressed = ExtResource("3_rfnbp")
+texture_hover = ExtResource("2_giads")
+
+[node name="Settings" type="TextureButton" parent="TitleVBox/VBoxContainer"]
+visible = false
+layout_mode = 2
+texture_normal = ExtResource("3_jfqwo")
+texture_pressed = ExtResource("3_rfnbp")
+texture_hover = ExtResource("5_73yli")
+
+[node name="Info" type="TextureButton" parent="TitleVBox/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_5pdrw")
+texture_pressed = ExtResource("3_rfnbp")
+texture_hover = ExtResource("7_f6kjg")
+
+[node name="Label2" type="Label" parent="TitleVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Move the cursor and click (i) for for game information
+Click play icon to start. 
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Screens/Info/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TitleVBox/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="TitleVBox/VBoxContainer/Info" to="." method="_on_info_pressed"]

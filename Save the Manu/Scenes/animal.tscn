@@ -1,0 +1,119 @@
+[gd_scene load_steps=14 format=3 uid="uid://kistxv3o0gv7"]
+
+[ext_resource type="Script" path="res://Scripts/animal.gd" id="1_151i1"]
+[ext_resource type="Texture2D" uid="uid://bjec84lphckpe" path="res://Art/asset pack 02(pixel Predator)/Selection39.png" id="2_op4t3"]
+[ext_resource type="Texture2D" uid="uid://j4pq0nmckqrt" path="res://Art/asset pack 02(pixel Predator)/Selection52.png" id="2_ysxev"]
+[ext_resource type="Texture2D" uid="uid://dma7nqxxjgtvi" path="res://Art/asset pack 02(pixel Predator)/Selection48.png" id="3_4lbyx"]
+[ext_resource type="Texture2D" uid="uid://c4hlkpsjmhc74" path="res://Art/asset pack 02(pixel Predator)/Selection38.png" id="3_k1y5a"]
+[ext_resource type="Texture2D" uid="uid://cccesmb1uiv42" path="res://Art/asset pack 02(pixel Predator)/Selection53.png" id="3_stm2a"]
+[ext_resource type="Texture2D" uid="uid://cash06pv1jjrm" path="res://Art/asset pack 02(pixel Predator)/Selection51.png" id="4_ebykv"]
+[ext_resource type="Texture2D" uid="uid://cjn2ypx2tgjfi" path="res://Art/asset pack 02(pixel Predator)/kaka.png" id="5_ekkp2"]
+[ext_resource type="Texture2D" uid="uid://c1e7eiqifjnao" path="res://Art/asset pack 02(pixel Predator)/Selection50.png" id="6_q63d1"]
+[ext_resource type="Texture2D" uid="uid://beh5twy2wjj6q" path="res://Art/asset pack 02(pixel Predator)/Selection49.png" id="7_1tx05"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nk1yt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_1tx05")
+}],
+"loop": true,
+"name": &"cat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4lbyx")
+}],
+"loop": true,
+"name": &"dog",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_k1y5a")
+}],
+"loop": true,
+"name": &"hedgehog",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ekkp2")
+}],
+"loop": true,
+"name": &"kaka",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_stm2a")
+}],
+"loop": true,
+"name": &"kereru",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_op4t3")
+}],
+"loop": true,
+"name": &"kiwi",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_q63d1")
+}],
+"loop": true,
+"name": &"rodent",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ysxev")
+}],
+"loop": true,
+"name": &"tui",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ebykv")
+}],
+"loop": true,
+"name": &"weka",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ht86"]
+radius = 8.06226
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vysfv"]
+radius = 17.0
+
+[node name="Animal" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_151i1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+sprite_frames = SubResource("SpriteFrames_nk1yt")
+animation = &"rodent"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_4ht86")
+
+[node name="ChatDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetection"]
+shape = SubResource("CircleShape2D_vysfv")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
+[connection signal="body_exited" from="ChatDetection" to="." method="_on_chat_detection_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

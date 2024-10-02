@@ -1,0 +1,9 @@
+[
+	{"name": "Bob", "text": "Kia Ora, *! You're here!"},
+	{"name": "Bob", "text": "I am feeling unwell today, so I need your help to deal with at least 4 pests"},
+	{"name": "*", "text": "Alright, Bob."},
+	{"name": "Bob", "text": "To know what pests you need to get rid of"},
+	{"name": "Bob", "text": "I reccomend talking to the birds around this carpark."},
+	{"name": "Bob", "text": "Otherwise, you might not know what the pests in the bush are!"},
+	{"name": "Bob", "text": "Meet me at the end of the bush when you find at least 4."},
+]
